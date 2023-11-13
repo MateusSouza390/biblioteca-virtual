@@ -11,5 +11,7 @@
             "email": "guhdobraga@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "dompdf/dompdf": "^2.0"
+    }
 }
