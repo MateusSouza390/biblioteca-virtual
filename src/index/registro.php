@@ -1,6 +1,6 @@
 <?php
-require_once 'C:\xampp\htdocs\biblioteca\src\config\config.php';
-require_once 'C:\xampp\htdocs\biblioteca\src\index\app\Controllers\LoginController.php';
+require_once 'C:\xampp\htdocs\biblioteca-virtual\src\config\config.php';
+require_once 'C:\xampp\htdocs\biblioteca-virtual\src\index\app\Controllers\LoginController.php';
 
 $loginController = new LoginController($pdo);
 
@@ -20,10 +20,17 @@ if (isset($_POST['nome']) &&
 	<title>Registre-se</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="public/assets/ico/book.png" type="image/x-icon">
 	<link rel="stylesheet" href="public/css/01login-registro.css">
 	<script src="public/js/background.js"></script>
+	<script src="public/js/aviso-adm.js"></script>
 </head>
 <body>
+<style>
+        /* Estilize o aviso modal */
+		  /* Estilize o modal */
+		  
+    </style>
 	<?php
                     if(isset($_SESSION['nao_autenticado'])):
                     ?>
@@ -45,6 +52,39 @@ if (isset($_POST['nome']) &&
 	<a href="login.php">					
 	Logue na sua conta				
 	</a>
-	</form>			
+	</form>	
+	
+	<a class="adm-button" id="adminButton">
+        <img src="public/assets/img/adm.png">
+    </a>
+	<div class="modal-background" id="modalBackground"></div>
+    <div id="adminModal" class="modal">
+        <button class="close-button" id="closeBtn">&times;</button>
+        <p>Esta página é apenas para administradores.</p>
+        <button class="understood-button" id="understoodBtn">Entendi</button>
+    </div>
+	<script>
+	 document.addEventListener('DOMContentLoaded', function() {
+    var adminButton = document.getElementById('adminButton');
+    var modal = document.getElementById('adminModal');
+    var modalBackground = document.getElementById('modalBackground');
+
+    adminButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalBackground.style.display = 'block';
+    });
+
+    document.getElementById('closeBtn').addEventListener('click', function() {
+        modal.style.display = 'none';
+        modalBackground.style.display = 'none';
+    });
+
+    document.getElementById('understoodBtn').addEventListener('click', function() {
+        modal.style.display = 'none';
+        modalBackground.style.display = 'none';
+    });
+});
+
+</script>
 </body>
 </html>

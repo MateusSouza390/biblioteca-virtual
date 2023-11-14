@@ -1,37 +1,35 @@
-<?php 
+<?php
 session_start();
-include 'C:\xampp\htdocs\biblioteca\src\config\config.php';
+include '../config/config.php';
 
-if (isset($_POST['email'])) {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+if(empty($_POST['nome']) || empty($_POST['senha'])) {
+    $_SESSION['nao_autenticado'] = true;
+    header('Location: login.php');
+    exit();
+}
 
-    $query = "SELECT * FROM usuarios WHERE (email = :email or nome = :email) AND senha = :senha";
+$usuario = $_POST['nome'];
+$senha = $_POST['senha'];
+
+try {
+    $query = "SELECT nome FROM usuarios WHERE nome = :usuario AND senha = :senha";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
+    $stmt->bindParam(':usuario', $usuario);
+    $stmt->bindParam(':senha', $senha);
     $stmt->execute();
 
-    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($resultado) {
-        $_SESSION['usuarioId'] = $resultado['id_usuario'];
-        $_SESSION['usuarioEmail'] = $resultado['email'];
-        $_SESSION['usuarioNomedeUsuario'] = $resultado['nome'];
-        $_SESSION['usuarioNiveisAcessoId'] = $resultado['tipo_usuario'];
-
-        
-        if ($_SESSION['usuarioNiveisAcessoId'] == "1") {
-            header("Location: ../login_adm/painel.php");
-        } elseif ($_SESSION['usuarioNiveisAcessoId'] == "2") {
-            header("Location: index.php");
-        } else {
-            header("Location: login.php");
-        }
-    } else {
-        $_SESSION['nao_autenticado'] = true;
+    if($user) {
+        $_SESSION['nome'] = $usuario;
         header('Location: index.php');
         exit();
+    } else {
+        $_SESSION['senha_incorreta'] = true; // Adicionando a mensagem de senha incorreta
+        header('Location: login.php');
+        exit();
     }
-} 
+} catch(PDOException $e) {
+    echo "Erro: " . $e->getMessage();
+}
 ?>

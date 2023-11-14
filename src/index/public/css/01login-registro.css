@@ -19,7 +19,7 @@ form {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     max-width: 320px;
     width: 100%;
-    transition: all 0.3s ease;
+    transition: all 0.8s ease;
 }
 
 form:hover {
@@ -100,4 +100,125 @@ form:hover h2 {
     to {
         opacity: 1;
     }
+}
+
+.error-message {
+    font-size: 18px;
+    color: red;
+    margin-bottom: 10px;
+}
+.adm-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ff5252;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(45deg, #ff5252, #b33939);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.adm-button:hover {
+    border-color: #b33939;
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.adm-button img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s, filter 0.8s;
+}
+
+.adm-button:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.adm-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(0);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.adm-button:hover::after {
+    animation: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    max-width: 300px;
+    text-align: center;
+    z-index: 999;
+    transition: all 0.3s;
+}
+
+.modal p {
+    margin-bottom: 20px;
+}
+
+.modal button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #ff5252;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal button:hover {
+    background: #b33939;
+}
+/* Estilos do modal e fundo desfocado */
+.modal-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escurecido */
+    backdrop-filter: blur(5px);
+    z-index: 998;
+}
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #999;
+    background: none;
+    border: none;
 }
