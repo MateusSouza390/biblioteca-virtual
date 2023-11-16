@@ -17,10 +17,10 @@ if (isset($_POST['nome']) &&
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Registre-se</title>
+	<title>Bookers©</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="public/assets/ico/book.png" type="image/x-icon">
+	<link rel="shortcut icon" href="public/assets/img/letter-b.png" type="image/x-icon">
 	<link rel="stylesheet" href="public/css/01login-registro.css">
 	
 </head>
@@ -66,6 +66,7 @@ if (isset($_POST['nome']) &&
         <p>Esta página é apenas para administradores.</p>
         <button class="understood-button" id="understoodBtn">Entendi</button>
     </div>
+    
 	<script>
 	 document.addEventListener('DOMContentLoaded', function() {
     var adminButton = document.getElementById('adminButton');
@@ -89,5 +90,7 @@ if (isset($_POST['nome']) &&
 });
 
 </script>
+
 </body>
+<h3 class="rights">All rights reserved by Bookers©</h3>
 </html>

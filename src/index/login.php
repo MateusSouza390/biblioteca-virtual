@@ -5,10 +5,10 @@ session_start()
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Login</title>
+	<title>Bookers©</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="public/assets/ico/book.png" type="image/x-icon">
+	<link rel="shortcut icon" href="public/assets/img/letter-b.png" type="image/x-icon">
 	<link rel="stylesheet" href="public/css/01login-registro.css">
 	
 </head>
@@ -24,12 +24,15 @@ session_start()
 <div class="bg">
 <img class="logo" src="public/assets/img/logo.png">
 <h1 class="title">Bem-vindo à<br>
-    Biblioteca Virtual! </h1>
+    Biblioteca Virtual!<br>
+    <span class="website">www.ourbookers.com.br </span>
+</h1>
 </div>
 	<form action="loginconfig.php" method="POST">
 	
 	<h2>Login</h2>
-	<input type="text" name="nome" placeholder="Email ou Usuário">
+    <h3 class="subtitle">Faça login na sua conta:</h3>
+	<input type="text" name="nome" placeholder="Usuário">
 	<input type="password" name="senha" placeholder="Senha">
 	<?php
     if (isset($_SESSION['senha_incorreta'])) {
@@ -78,6 +81,6 @@ session_start()
 	
 					
 			
-
+<h3 class="rights">All rights reserved by Bookers©</h3>
 </body>
 </html>

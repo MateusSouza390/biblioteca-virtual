@@ -247,6 +247,7 @@ form:hover h2 {
     background: linear-gradient(45deg, #36a0e6, #246d9e), url('public/assets/img/logo.png');
     background-size: cover; /* ou 'contain', dependendo da preferência */
     background-position: center; /* ou ajuste conforme necessário */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 .bg::before {
@@ -305,4 +306,11 @@ form:hover h2 {
     right: 0; /* Coloca a imagem completamente à direita */
     bottom: 0;
     left: 0;
+}
+
+.rights {
+    position: absolute;
+    bottom: -10px;
+    font-size: 12px;
+    font-weight: lighter;
 }
