@@ -10,7 +10,7 @@ session_start()
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="public/assets/ico/book.png" type="image/x-icon">
 	<link rel="stylesheet" href="public/css/01login-registro.css">
-	<script src="public/js/background.js"></script>
+	
 </head>
 <body>
 
@@ -21,7 +21,11 @@ session_start()
                     endif;
                     unset($_SESSION['nao_autenticado']);
                     ?>
-
+<div class="bg">
+<img class="logo" src="public/assets/img/logo.png">
+<h1 class="title">Bem-vindo à<br>
+    Biblioteca Virtual! </h1>
+</div>
 	<form action="loginconfig.php" method="POST">
 	
 	<h2>Login</h2>

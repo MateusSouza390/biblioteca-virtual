@@ -2,21 +2,24 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(45deg, #ff5252, #b33939);
+    background: #fff;
     animation: fadeIn 2s;
     overflow: hidden;
-    font-family: Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 form {
+    position: absolute;
+    right: 150px;
     text-align: center;
     background: #fff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.177);
     max-width: 320px;
     width: 100%;
     transition: all 0.8s ease;
@@ -35,25 +38,26 @@ form a {
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 16px;
-    font-family: Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
     transition: all 0.3s ease;
 }
 
 form input:focus {
     outline: none;
-    border-color: #ff5252;
-    box-shadow: 0 0 8px 0 #ff5252;
+    border-color: #1c86cd;
+    box-shadow: 0 0 8px 0 #1c86cd;
 }
 
 form button {
-    background: #ff5252;
+    background:  #1c86cd; 
     color: #fff;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 form button:hover {
-    background: #b33939;
+    background: #169af1;
 }
 
 form a {
@@ -71,7 +75,7 @@ form a::before {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #b33939;
+    background-color: #1c86cd;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
@@ -83,14 +87,22 @@ form a:hover::before {
 }
 
 form h2 {
+    font-weight: lighter;
+    text-align: left;
     font-size: 28px;
-    color: #ff5252;
+    color: #1c86cd;
     margin-bottom: 20px;
     transition: color 0.3s;
 }
 
 form:hover h2 {
-    color: #b33939;
+    color: #169af1;
+}
+
+.subtitle {
+    font-weight: lighter;
+    text-align: left;
+    font-size: 16px;
 }
 
 @keyframes fadeIn {
@@ -113,17 +125,17 @@ form:hover h2 {
     right: 20px;
     width: 60px;
     height: 60px;
-    border: 2px solid #ff5252;
+    border: 1px solid #000000;
     border-radius: 50%;
     overflow: hidden;
-    background: linear-gradient(45deg, #ff5252, #b33939);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #0d5d93, #1394e9);
+    box-shadow: 0 2px 28px rgba(0, 0, 0, 0.558);
     transition: all 0.3s;
     cursor: pointer;
 }
 
 .adm-button:hover {
-    border-color: #b33939;
+    border-color: #1a0303;
     transform: scale(1.1);
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
@@ -190,7 +202,7 @@ form:hover h2 {
     margin: 0 10px;
     padding: 10px 20px;
     border: none;
-    background: #ff5252;
+    background: #36a0e6;
     color: #fff;
     border-radius: 8px;
     cursor: pointer;
@@ -198,7 +210,7 @@ form:hover h2 {
 }
 
 .modal button:hover {
-    background: #b33939;
+    background: #308cca;
 }
 /* Estilos do modal e fundo desfocado */
 .modal-background {
@@ -221,4 +233,76 @@ form:hover h2 {
     color: #999;
     background: none;
     border: none;
+}
+
+.bg {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 60vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #36a0e6, #246d9e), url('public/assets/img/logo.png');
+    background-size: cover; /* ou 'contain', dependendo da preferência */
+    background-position: center; /* ou ajuste conforme necessário */
+}
+
+.bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #36a0e6, #246d9e), url('public/assets/img/logo.png');
+    background-size: cover; /* ou 'contain', dependendo da preferência */
+    background-position: center; /* ou ajuste conforme necessário */
+    z-index: -1; /* Para colocar o pseudo-elemento atrás do conteúdo da .bg */
+}
+
+
+
+.logo {
+    position: absolute;
+    bottom: 240px;
+    width: 250px; /* ajuste conforme necessário */
+    height: 250px;
+    
+}
+
+.logo img {
+    width: 30px; /* ajuste conforme necessário */
+    height: 20px;}
+
+.title {
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    padding: 50px;
+    font-size: 35px;
+    line-height: 50px;
+    font-weight: 550;
+}
+
+.website {
+    position: absolute;
+    bottom:5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.img-bg {
+    opacity: 0.2; /* Valor entre 0 (totalmente transparente) e 1 (totalmente opaco) */
+    width: 100%; /* Ajuste conforme necessário */
+    height: 100%; /* Ajuste conforme necessário */
+    object-fit: cover; /* Garante que a imagem cubra completamente o contêiner */
+    position: absolute; /* Ajuste conforme necessário */
+    top: 0;
+    right: 0; /* Coloca a imagem completamente à direita */
+    bottom: 0;
+    left: 0;
 }

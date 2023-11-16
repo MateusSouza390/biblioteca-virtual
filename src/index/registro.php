@@ -22,15 +22,9 @@ if (isset($_POST['nome']) &&
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="public/assets/ico/book.png" type="image/x-icon">
 	<link rel="stylesheet" href="public/css/01login-registro.css">
-	<script src="public/js/background.js"></script>
-	<script src="public/js/aviso-adm.js"></script>
+	
 </head>
 <body>
-<style>
-        /* Estilize o aviso modal */
-		  /* Estilize o modal */
-		  
-    </style>
 	<?php
                     if(isset($_SESSION['nao_autenticado'])):
                     ?>
@@ -39,9 +33,18 @@ if (isset($_POST['nome']) &&
                     endif;
                     unset($_SESSION['nao_autenticado']);
                     ?>
-
+<div class="bg">
+<img class="img-bg" src="public/asets/img/logo.png">
+<img class="logo" src="public/assets/img/logo.png">
+<h1 class="title">Bem-vindo à<br>
+    Biblioteca Virtual!<br>
+    <span class="website">www.ourbookers.com.br </span>
+</h1>
+    
+</div>
 	<form  method="POST">
-	<h2>Registro</h2>
+	<h2>Registre-se</h2>
+    <h3 class="subtitle">Se identifique para continuar:</h3>
 	<input type="text" name="nome" placeholder="Nome" required>         
 	<input type="email" name="email" placeholder="E-mail" required>
 	<input type="password" name="senha" placeholder="Senha" required>
