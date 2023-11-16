@@ -48,7 +48,7 @@ session_start()
 	</a>				
 </form>	
 <a class="adm-button" id="adminButton">
-        <img src="public/assets/img/adm.png">
+        <img src="public/assets/img/adm1.png">
     </a>
 	<div class="modal-background" id="modalBackground"></div>
     <div id="adminModal" class="modal">
