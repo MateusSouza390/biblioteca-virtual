@@ -266,15 +266,16 @@ form:hover h2 {
 
 /* Estilos do logo */
 .logo {
-    position: absolute;
+    display: flex;
+    align-items: stretch;
     bottom: 240px;
     width: 250px; /* ajuste conforme necessário */
     height: 250px;
 }
 
 .logo img {
-    width: 30px; /* ajuste conforme necessário */
-    height: 20px;
+    width: 250px; /* ajuste conforme necessário */
+    height: 250px;
 }
 
 /* Outros estilos */

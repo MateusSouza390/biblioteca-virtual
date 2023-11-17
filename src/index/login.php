@@ -22,12 +22,15 @@ session_start()
                     unset($_SESSION['nao_autenticado']);
                     ?>
 <div class="bg">
-<img class="logo" src="public/assets/img/logo.png">
+<div class="logo">
+<img  src="public/assets/img/logo.png">
+</div>
 <h1 class="title">Bem-vindo à<br>
     Biblioteca Virtual!<br>
     <span class="website">www.ourbookers.com.br </span>
 </h1>
 </div>
+    
 	<form action="loginconfig.php" method="POST">
 	
 	<h2>Login</h2>
