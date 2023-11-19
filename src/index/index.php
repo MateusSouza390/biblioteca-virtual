@@ -33,10 +33,12 @@ if (!isset($_SESSION['nome'])) {
             <div class="user-icon" id="user-icon" onclick="showUserInfo()">
             <div class="user-ico">
             <img src="public/assets/img/user-ico.png">
-            <div/>
+</div>
             <div class="user-info" id="user-info">
             <button class= "exitbutton" onclick="logout()">
-                    <div class="login-button"><h6>Sair<img width="5" height="5" src="https://img.icons8.com/material/24/exit.png" alt="exit"/></h6></div></button>
+                    <div class="login-button"><h6 class="flex">Sair<img width="5" height="5" src="https://img.icons8.com/material/24/exit.png" alt="exit"/></h6></div></button>
+                    
+                
                 </div>
             <div class="user-title">
             <h1>
