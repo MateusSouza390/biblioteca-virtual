@@ -36,7 +36,7 @@ if (!isset($_SESSION['nome'])) {
 </div>
             <div class="user-info" id="user-info">
             <button class= "exitbutton" onclick="logout()">
-                    <div class="login-button"><h6 class="flex">Sair<img width="5" height="5" src="https://img.icons8.com/material/24/exit.png" alt="exit"/></h6></div></button>
+                    <div class="login-button"><h6 class="flex">Sair<img width="5" height="5" src="https://img.icons8.com/ios/50/FFFFFF/exit--v1.png" alt="exit"/></h6></div></button>
                     
                 
                 </div>
