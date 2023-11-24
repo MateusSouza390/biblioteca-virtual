@@ -1,5 +1,8 @@
 <?php
 include_once 'verifica_login.php';
+require_once 'C:\xampp\htdocs\biblioteca-virtual\src\config\config.php';
+
+
 ?>
 
 <?php
@@ -7,6 +10,9 @@ if (!isset($_SESSION['nome'])) {
     header('Location: login.php');
     exit();
 }
+
+$stmt = $pdo->query('SELECT * FROM livros');
+$livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>	
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -81,63 +87,6 @@ function logout() {
     alert('Você foi desconectado.');
     window.location.href = "logout.php";
 }
-
-
-// PESQUISA
-const suggestionToUrlMap = {
-    "Futebol": "../esportes/futsal.php",
-    "Voleibol": "../esportes/volei.php",
-    "Queimada": "../esportes/queimada.php",
-    "Xadrez": "../esportes/xadrez.php",
-    "FIFA": "../esportes/fifa.php",
-    "Interclasse": "../noticias/index.php",
-    "Equipes": "../equipes/index.php",
-};
-
-const searchInput = document.getElementById('search-input');
-const suggestionsList = document.getElementById('suggestions');
-
-searchInput.addEventListener('input', function () {
-    const inputValue = searchInput.value.toLowerCase();
-    const filteredSuggestions = Object.keys(suggestionToUrlMap).filter(suggestion => suggestion.toLowerCase().includes(inputValue));
-
-    displaySuggestions(filteredSuggestions);
-
-    // Verifique se o valor do campo de entrada está vazio
-    if (inputValue === '') {
-        suggestionsList.style.display = 'none';
-    }
-});
-
-function displaySuggestions(suggestionsArray) {
-    suggestionsList.innerHTML = '';
-
-    if (suggestionsArray.length === 0) {
-        suggestionsList.style.display = 'none';
-        return;
-    }
-
-    suggestionsArray.forEach(suggestion => {
-        const listItem = document.createElement('li');
-        listItem.textContent = suggestion;
-        listItem.addEventListener('click', function () {
-            redirectToPage(suggestion);
-        });
-        suggestionsList.appendChild(listItem);
-    });
-
-    suggestionsList.style.display = 'block';
-}
-
-function redirectToPage(query) {
-    const url = suggestionToUrlMap[query];
-    if (url) {
-        window.location.href = url;
-    } else {
-        alert("URL não encontrada para esta sugestão.");
-    }
-}
-
 </script>
             <aside class="list">
             <ul>
@@ -148,12 +97,31 @@ function redirectToPage(query) {
                 <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/about.png" alt="about"/></span>Sobre Nós</a></li>
                 <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/apple-contacts.png" alt="apple-contacts"/></span>Contato</a></li>
             </ul>
-                </div>
+                
 </aside>
         </nav>
-
         
+        <section class="livros-container">
+            <?php foreach ($livros as $livro): ?>
+                
+                <div class="livro-1">
+                    <div class="livro-img">
+                    <img src="<?php echo $livro['imagem']; ?>">
+                    </div>
+                    <div class="livro-nome">
+                        <h3><?php echo $livro['nome']; ?><br><span class="livro-preco"><?php echo 'R$' . number_format($livro['preco'], 2, ',', '.'); ?></span></h3>
+                    </div>
+                    <div class="livro-button">
+                        <button><a href="#">Emprestar</a></button>
+                    </div>
+                </div>
+                
+            <?php endforeach; ?>
+        </section>
     </div>
+
+
+   
 
     <footer>
         <p>&copy; 2023 Biblioteca Virtual. Todos os direitos reservados.</p>
