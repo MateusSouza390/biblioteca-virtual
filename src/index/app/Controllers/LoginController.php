@@ -8,8 +8,8 @@ class LoginController {
         $this->loginModel = new LoginModel($pdo);
     }
 
-    public function criarLogin($nome, $email, $senha) {
-        $this->loginModel->criarLogin($nome, $email, $senha);
+    public function criarLogin($nome_u, $email, $senha) {
+        $this->loginModel->criarLogin($nome_u, $email, $senha);
     }
 
     public function listarLogins() {
@@ -21,8 +21,8 @@ class LoginController {
         include 'C:\xampp\htdocs\biblioteca-virtual\src\app\Views\login\lista.php';
     }
 
-    public function atualizarLogin($id_usuario, $nome, $email, $senha) {
-        $this->loginModel->atualizarLogin($id_usuario, $nome, $email, $senha);
+    public function atualizarLogin($id_usuario, $nome_u, $email, $senha) {
+        $this->loginModel->atualizarLogin($id_usuario, $nome_u, $email, $senha);
     }
 
     public function excluirLogin ($id_usuario) {

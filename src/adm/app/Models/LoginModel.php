@@ -6,11 +6,11 @@ class LoginModel {
         $this->pdo = $pdo;
     }
 
-    public function criarLogin($nome, $email, $senha) {
-        $sql = "INSERT INTO usuarios (nome, email, senha) 
+    public function criarLogin($nome_u, $email, $senha) {
+        $sql = "INSERT INTO usuarios (nome_u, email, senha) 
         VALUES (?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $email, $senha]);
+        $stmt->execute([$nome_u, $email, $senha]);
     }
 
     public function listarLogins() {
@@ -19,10 +19,10 @@ class LoginModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function atualizarLogin($id_usuario, $nome, $email, $senha) {
-        $sql = "UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id_usuario = ?";
+    public function atualizarLogin($id_usuario, $nome_u, $email, $senha) {
+        $sql = "UPDATE usuarios SET nome_u = ?, email = ?, senha = ? WHERE id_usuario = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([ $nome, $email, $senha, $id_usuario]);
+        $stmt->execute([ $nome_u, $email, $senha, $id_usuario]);
     }
     
     public function excluirLogin($id_usuario) {

@@ -8,16 +8,26 @@ class LivroController {
         $this->livroModel = new LivroModel($pdo);
     }
 
-    public function adicionarLivro($nome, $preco, $imagem) {
-        $this->livroModel->adicionarLivro($nome, $preco, $imagem);
+    public function adicionarLivro($nome, $preco, $imagem, $quantidade) {
+        $this->livroModel->adicionarLivro($nome, $preco, $imagem, $quantidade);
     }
 
-    public function exibirLivros() {
-        // Obtém os livros do modelo
-        $livros = $this->livroModel->obterLivros();
+    
+    public function listarLivros() {
+        return $this->livroModel->listarLivros();
+    }
 
-        // Inclui a visão e passa os livros para ela
-        include 'caminho/para/sua/visao.php';
+    public function exibirListaLivros() {
+        $livros = $this->livroModel->listarLivros();
+        include 'app/Views/Livros/lista.php';
+    }
+
+    public function atualizarLivro($id_livro, $nome, $preco, $quantidade) {
+        $this->livroModel->atualizarLivro($id_livro, $nome, $preco, $quantidade);
+    }
+    
+    public function excluirLivro ($id_livro) {
+        $this->livroModel->excluirLivro($id_livro);
     }
 }
 ?>

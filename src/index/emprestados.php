@@ -5,6 +5,7 @@ require_once 'app/Controllers/LivroController.php';
 require_once 'app/Controllers/EmprestimoController.php';
 
 
+
 ?>
 
 <?php
@@ -42,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Biblioteca Virtual</title>
     <link rel="stylesheet" href="public/css/02index-biblio.css">
+    <link rel="stylesheet" href="public/css/03tables-style.css">
     <link rel="shortcut icon" href="public/assets/img/letter-b.png" type="image/x-icon">
     <script src="public/assets/js/script.js"></script>
 </head>
@@ -112,8 +114,8 @@ function logout() {
             <aside class="list">
             <ul>
                 
-                <li><a href="emprestados.php"><span class="images"><img  width="20" height="20" src="https://img.icons8.com/external-itim2101-fill-itim2101/64/FFFFFF/external-book-back-to-school-itim2101-fill-itim2101.png" alt="external-book-back-to-school-itim2101-fill-itim2101"/></span>Empréstimos</a></li>
-                <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/book.png" alt="book"/></span>Livros</a></li>
+                <li><a href="#"><span class="images"><img  width="20" height="20" src="https://img.icons8.com/external-itim2101-fill-itim2101/64/FFFFFF/external-book-back-to-school-itim2101-fill-itim2101.png" alt="external-book-back-to-school-itim2101-fill-itim2101"/></span>Empréstimos</a></li>
+                <li><a href="index.php"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/book.png" alt="book"/></span>Livros</a></li>
                 <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/menu-2.png" alt="menu-2"/></span>Categorias</a></li>
                 <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/about.png" alt="about"/></span>Sobre Nós</a></li>
                 <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/apple-contacts.png" alt="apple-contacts"/></span>Contato</a></li>
@@ -122,30 +124,28 @@ function logout() {
 </aside>
         </nav>
         
-        <section class="livros-container">
-            <?php foreach ($livros as $livro): ?>
+             
+    <ul>
+        
+    <div class="emprestados"> 
+        <?php $livrosEmprestados = $emprestimoController->listarLivrosEmprestados($_SESSION['nome_u']); ?>
+        <?php foreach ($livrosEmprestados as $emprestimo): ?>
+            
+            <div class="item-1"><li>
+                <?php echo "ID do Livro: " . $emprestimo['livro_emprestimo']; ?> <br>
+                <?php echo "Livro: " . $emprestimo['nome_livro']; ?> <br>
+                <?php echo "Nome do Usuário: " . $emprestimo['aluno_emprestimo']; ?>
                 
-                <div class="livro-1">
-                    <div class="livro-img">
-                    <img src="<?php echo $livro['imagem']; ?>">
-                    </div>
-                    <div class="livro-nome">
-                        <h3><?php echo $livro['nome']; ?><br><span class="livro-preco"><?php echo 'R$' . number_format($livro['preco'], 2, ',', '.'); ?></span></h3>
-                        <?php echo $livro['quantidade']; ?> -
-                    </div>
-                    <div class="livro-button">
-                    <form method="post" action="index.php">
-                    <input type="hidden" name="id_livro" value="<?php echo $livro['id_livro']; ?>">
-                    <input type="hidden" name="nome" value="<?php echo $livro['nome']; ?>">
-                    <button type="submit" name="emprestar">Emprestar</button>
-            </form>
-                    </div>
-                </div>
-                
-            <?php endforeach; ?>
+                <form method="post" action="index.php">
+                    <input type="hidden" name="id_livro" value="<?php echo $emprestimo['emprestimo_id']; ?>">
+                    <button type="submit" name="devolver">Devolver</button>
+                </form>
+            </li></div>
+        <?php endforeach; ?>
+    </ul>
         </section>
     </div>
-
+        </div>
 
    
 

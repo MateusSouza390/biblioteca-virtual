@@ -6,17 +6,17 @@ $loginController = new LoginController($pdo);
 $error = '';
 $successMessage = '';
 
-if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha'])) {
+if (isset($_POST['nome_u']) && isset($_POST['email']) && isset($_POST['senha'])) {
     // Verificar se já existe um usuário com as mesmas informações
-    $stmt = $pdo->prepare('SELECT COUNT(*) FROM usuarios WHERE nome = ? AND senha = ?');
-    $stmt->execute([$_POST['nome'], $_POST['senha']]);
+    $stmt = $pdo->prepare('SELECT COUNT(*) FROM usuarios WHERE nome_u = ? AND senha = ?');
+    $stmt->execute([$_POST['nome_u'], $_POST['senha']]);
     $count = $stmt->fetchColumn();
 
     if ($count > 0) {
         $error = 'Já existe um usuário com essas informações.';
     } else {
         // Se não houver erro, proceder com a criação do login
-        $loginController->criarLogin($_POST['nome'], $_POST['email'], $_POST['senha']);
+        $loginController->criarLogin($_POST['nome_u'], $_POST['email'], $_POST['senha']);
         $successMessage = 'Registro realizado com sucesso!';
     }
 }
@@ -65,7 +65,7 @@ if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha'])) {
 	<form  method="POST">
 	<h2>Registre-se</h2>
     <h3 class="subtitle">Se identifique para continuar:</h3>
-	<input type="text" name="nome" placeholder="Nome" required>         
+	<input type="text" name="nome_u" placeholder="Nome" required>         
 	<input type="email" name="email" placeholder="E-mail" required>
 	<input type="password" name="senha" placeholder="Senha" required>
 	<button>			

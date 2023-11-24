@@ -35,7 +35,7 @@ session_start()
 	
 	<h2>Login</h2>
     <h3 class="subtitle">Faça login na sua conta:</h3>
-	<input type="text" name="nome" placeholder="Usuário">
+	<input type="text" name="nome_u" placeholder="Usuário">
 	<input type="password" name="senha" placeholder="Senha">
 	<?php
     if (isset($_SESSION['senha_incorreta'])) {
@@ -57,7 +57,7 @@ session_start()
     <div id="adminModal" class="modal">
         <button class="close-button" id="closeBtn">&times;</button>
         <p>Esta página é apenas para administradores.</p>
-        <button class="understood-button" id="understoodBtn">Entendi</button>
+        <button class="understood-button" id="understoodBtn"><a href="../adm/login-adm.php">Entendi</button>
     </div>
 	<script>
 	document.addEventListener('DOMContentLoaded', function() {

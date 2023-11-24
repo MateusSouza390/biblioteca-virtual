@@ -4,7 +4,7 @@ include '../config/config.php';
 
 if(empty($_POST['nome_u']) || empty($_POST['senha'])) {
     $_SESSION['nao_autenticado'] = true;
-    header('Location: login.php');
+    header('Location: login-adm.php');
     exit();
 }
 
@@ -26,7 +26,7 @@ try {
         exit();
     } else {
         $_SESSION['senha_incorreta'] = true; // Adicionando a mensagem de senha incorreta
-        header('Location: login.php');
+        header('Location: login-adm.php');
         exit();
     }
 } catch(PDOException $e) {
