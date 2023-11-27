@@ -112,11 +112,9 @@ function logout() {
             <aside class="list">
             <ul>
                 
+            <li><a href="index.php"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/book.png" alt="book"/></span>Livros</a></li>
                 <li><a href="emprestados.php"><span class="images"><img  width="20" height="20" src="https://img.icons8.com/external-itim2101-fill-itim2101/64/FFFFFF/external-book-back-to-school-itim2101-fill-itim2101.png" alt="external-book-back-to-school-itim2101-fill-itim2101"/></span>Empréstimos</a></li>
-                <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/book.png" alt="book"/></span>Livros</a></li>
-                <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/menu-2.png" alt="menu-2"/></span>Categorias</a></li>
-                <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/about.png" alt="about"/></span>Sobre Nós</a></li>
-                <li><a href="#"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/apple-contacts.png" alt="apple-contacts"/></span>Contato</a></li>
+                <li><a href="historico.php"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/20/FFFFFF/historical.png" alt="historical"/></span>Histórico</a></li>
             </ul>
                 
 </aside>
@@ -131,7 +129,7 @@ function logout() {
                     </div>
                     <div class="livro-nome">
                         <h3><?php echo $livro['nome']; ?><br><span class="livro-preco"><?php echo 'R$' . number_format($livro['preco'], 2, ',', '.'); ?></span></h3>
-                        <?php echo $livro['quantidade']; ?> -
+                        Quantidade - <?php echo $livro['quantidade']; ?> 
                     </div>
                     <div class="livro-button">
                     <form method="post" action="index.php">

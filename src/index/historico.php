@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
     $emprestimoController->devolverLivro($livroID);
 }
 
-
+$historico = $emprestimoController->listarHistorico($_SESSION['nome_u']);
 ?>	
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -50,6 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
     <script src="public/assets/js/script.js"></script>
 </head>
 <body>
+   
+
+
+
+
+</style>
     <header>
         <div class="esq">
         <div class="text-logo">
@@ -116,34 +122,27 @@ function logout() {
             <aside class="list">
             <ul>
                 
-            <li><a href="index.php"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/book.png" alt="book"/></span>Livros</a></li>
+                
+                <li><a href="index.php"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/book.png" alt="book"/></span>Livros</a></li>
                 <li><a href="emprestados.php"><span class="images"><img  width="20" height="20" src="https://img.icons8.com/external-itim2101-fill-itim2101/64/FFFFFF/external-book-back-to-school-itim2101-fill-itim2101.png" alt="external-book-back-to-school-itim2101-fill-itim2101"/></span>Empréstimos</a></li>
                 <li><a href="historico.php"><span class="images"><img width="20" height="20" src="https://img.icons8.com/ios-filled/20/FFFFFF/historical.png" alt="historical"/></span>Histórico</a></li>
             </ul>
                 
 </aside>
         </nav>
-        
-             
-    <ul>
-        
+
     <div class="emprestados"> 
-        <?php $livrosEmprestados = $emprestimoController->listarLivrosEmprestados($_SESSION['nome_u']); ?>
-        <?php foreach ($livrosEmprestados as $emprestimo): ?>
-            
-            <div class="item-1"><li>
-                <?php echo "ID do Livro: " . $emprestimo['livro_emprestimo']; ?> <br>
-                <?php echo "Livro: " . $emprestimo['nome_livro']; ?> <br>
-                <?php echo "Nome do Usuário: " . $emprestimo['aluno_emprestimo']; ?>
-                
-                <form method="post" action="index.php">
-                    <input type="hidden" name="id_livro" value="<?php echo $emprestimo['emprestimo_id']; ?>">
-                    <br>
-                    <div class="devolver"><button type="submit" name="devolver">Devolver</button></div>
-                </form>
-            </li></div>
-        <?php endforeach; ?>
-    </ul>
+    
+    <?php foreach ($historico as $registro): ?>
+        <div class="item-1">
+            <li>
+                <?php echo "ID do Livro: " . $registro['livro_id']; ?> <br>
+                <?php echo "Ação: " . $registro['acao']; ?> <br>
+                <?php echo "Data: " . $registro['data']; ?>
+            </li>
+        </div>
+    <?php endforeach; ?>
+</div>
         
         </section>
     </div>

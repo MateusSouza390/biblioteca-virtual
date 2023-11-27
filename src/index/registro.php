@@ -84,7 +84,7 @@ if (isset($_POST['nome_u']) && isset($_POST['email']) && isset($_POST['senha']))
     <div id="adminModal" class="modal">
         <button class="close-button" id="closeBtn">&times;</button>
         <p>Esta página é apenas para administradores.</p>
-        <button class="understood-button" id="understoodBtn">Entendi</button>
+        <button class="understood-button" id="understoodBtn"><a href="../adm/login-adm.php">Entendi</a></button>
     </div>
     
 	<script>
