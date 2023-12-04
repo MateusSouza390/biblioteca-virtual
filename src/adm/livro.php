@@ -36,7 +36,7 @@ $livros = $livroController->listarLivros();
 </head>
 <body>
 <style>
-        body {
+       body {
             font-family: 'Arial', sans-serif;
             background-color: #f5f5f5;
             margin: 0;
@@ -95,14 +95,14 @@ $livros = $livroController->listarLivros();
         }
 
         button {
-            background-color: #3498db;
+            background-color: #325381;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         button:hover {
-            background-color: #267bb9;
+            background-color: #325381;
             transform: scale(1.05);
         }
 
@@ -121,14 +121,14 @@ $livros = $livroController->listarLivros();
         }
 
         a {
-            color: #3498db;
+            color: #325381;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #267bb9;
+            color: #325381;
         }
 
         table {
@@ -144,7 +144,7 @@ $livros = $livroController->listarLivros();
         }
 
         th {
-            background-color: #3498db;
+            background-color: #325381;
             color: #fff;
         }
 

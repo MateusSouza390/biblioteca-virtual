@@ -26,10 +26,10 @@ if (isset($_POST['nome_u']) && isset($_POST['email']) && isset($_POST['senha']))
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Bookers©</title>
+	<title>Biblioteca Virtual</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="public/assets/img/letter-b.png" type="image/x-icon">
+
 	<link rel="stylesheet" href="public/css/01login-registro.css">
 	
 </head>
@@ -54,11 +54,11 @@ if (isset($_POST['nome_u']) && isset($_POST['email']) && isset($_POST['senha']))
                     
                     
 <div class="bg">
-<img class="img-bg" src="public/asets/img/logo.png">
-<img class="logo" src="public/assets/img/logo.png">
+<div class="logo">
+                </div>
 <h1 class="title">Bem-vindo à<br>
     Biblioteca Virtual!<br>
-    <span class="website">www.ourbookers.com.br </span>
+    
 </h1>
     
 </div>
@@ -112,5 +112,5 @@ if (isset($_POST['nome_u']) && isset($_POST['email']) && isset($_POST['senha']))
 </script>
 
 </body>
-<h3 class="rights">All rights reserved by Bookers©</h3>
+
 </html>

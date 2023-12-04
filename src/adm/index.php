@@ -45,7 +45,7 @@ include_once 'gerar_pdf.php'
             width: 10vw;
             padding: 8px;
             margin-bottom: 10px;
-            background-color: #3498db;
+            background-color: #325381;
             color: #fff;
             text-decoration: none;
             border: none;
@@ -57,7 +57,7 @@ include_once 'gerar_pdf.php'
         
 
         button:hover, a:hover {
-            background-color: #267bb9;
+            background-color: #325381;
             transform: scale(1.05);
         }
 
