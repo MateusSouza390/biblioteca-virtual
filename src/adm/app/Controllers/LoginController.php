@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\xampp\htdocs\biblioteca-virtual-g\src\adm\app\Models\LoginModel.php';
+require_once 'C:\xampp\htdocs\biblioteca-virtual\src\adm\app\Models\LoginModel.php';
 
 class LoginController {
     private $loginModel;
